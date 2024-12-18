@@ -1,0 +1,173 @@
+/* CSS Reset */
+body,
+header,
+nav,
+main,
+footer,
+div,
+img,
+ul {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* General layout for larger screens (default behavior) */
+body {
+  margin: 0;
+  font-family: "Quicksand";
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+.mobile-nav {
+  display: none;
+}
+
+header {
+  font-family: "Raleway";
+  position: -webkit-sticky;
+  position: sticky;
+  line-height: 1;
+  top: 0;
+  background-color: #a7d58d;
+  padding: 5px 0;
+  border-bottom: #c8d18d 5px solid;
+  z-index: 10;
+}
+
+header a {
+  color: #4a5b2b;
+  text-decoration: none;
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+header a:hover {
+  color: #f4f1e1;
+  text-shadow: 1px 1px 3px #fff;
+}
+
+header ul {
+  list-style: none;
+  text-align: center;
+}
+
+header li {
+  align-items: right;
+  display: inline;
+  border-left: 3px solid #4a5b2b;
+  padding: 0 30px;
+}
+
+header li:first-child {
+  border-left: none;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 95%;
+  padding: 5px;
+  margin: 0 auto;
+}
+
+.profile-img {
+  left: 0;
+  width: 20%;
+  height: 20%;
+  border-radius: 50%;
+}
+
+.container {
+  position: relative; /* Ensure hero images position correctly */
+  margin: 0 auto;
+  padding: 20px;
+  max-width: 80%; /* Constrain the content width */
+  overflow: hidden; /* Prevent side images from affecting layout */
+  z-index: 1; /* Place content above the borders */
+}
+
+/* Hero images as side borders */
+.hero-image-left,
+.hero-image-right {
+  position: absolute; /* Use absolute positioning for side placement */
+  top: 40px; /* Start below the sticky header */
+  bottom: 0;
+  width: 10px; /* Make them appear as thin borders */
+  height: 100vh; /* Stretch to the full viewport height */
+  background-size: cover;
+  background-color: #f4f1e1; /* Tint color */
+  filter: grayscale(100%);
+  opacity: 0.7;
+  z-index: 0; /* Place behind the content */
+}
+
+.hero-image-left {
+  left: 0;
+  background-color: #f4f1e1;
+}
+
+.hero-image-left img {
+  filter: grayscale(100%);
+  opacity: 0.7;
+  max-width: 10vw;
+}
+
+.hero-image-right {
+  right: 0;
+  background-color: #f4f1e1;
+}
+
+.hero-image-right img {
+  filter: grayscale(100%);
+  opacity: 0.7;
+  max-width: 10vw;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+  text-align: center;
+  z-index: 1;
+  max-width: 1200px;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 1.2em;
+}
+
+/* Style rules for footer content */
+footer p {
+  font-size: 0.75em;
+  text-align: center;
+  color: #4a5b2b;
+  padding: 0 1em;
+}
+
+/* Media query to disable sticky elements and hide side borders on mobile */
+@media screen and (max-width: 768px) {
+  /* Disable sticky behavior for mobile view */
+  .hero-image-left,
+  .hero-image-right {
+    position: static; /* Remove sticky positioning */
+    width: 0; /* Make the side borders invisible */
+    display: none; /* Hide the side borders */
+  }
+
+  .mobile-nav {
+    display: block;
+  }
+
+  header {
+    position: relative; /* Ensure the header behaves normally on mobile */
+  }
+
+  .container {
+    padding-top: 20px; /* Adjust spacing for mobile */
+  }
+}
